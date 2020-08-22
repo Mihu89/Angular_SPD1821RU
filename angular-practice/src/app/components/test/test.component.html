@@ -1,1 +1,43 @@
 <p>test works!</p>
+<!-- Property Binding example -->
+<h1 [innerText]="currentDay"></h1>
+<button [disabled]="isDisabled">I am a disabled button</button>
+<button [attr.aria-label]="closeLabel" (click)="closeMe()">X</button>
+
+<!-- NgClass example -->
+
+<div [ngClass]="'red size18'"> Angular 10 Version</div>
+
+<div [ngClass]="['red size18']"> Angular Version 10</div>
+
+<div [ngClass]="{'red': true, 'size18':false}"> Angular Version 10 PRO</div>
+
+<!-- Dynamiclly updating Class name  -->
+<br />
+<hr />
+<div [ngClass]="cssVariable">This text will be changed !!!</div>
+
+<div [ngClass]="cssClass">Classes was specified into Class</div>
+
+<!-- NgStyle example -->
+<br />
+<hr />
+<span [style.backgroundColor]="'yellow'">I am a yellow span</span>&nbsp;
+<span [style.color]="'pink'"><b>I am a pink span</b></span>
+<!-- <button [style.border]="'5px solid green'">Payment</button> -->
+<button [style.backgroundColor]="status === 'payed' ? 'red': 'blue'">Payment</button>
+
+<button [style.backgroundColor]="setColor()">Payment2</button>
+
+
+<button [style.font-size.px]="'22'" [style.backgroundColor]="'red'">My big button</button>
+
+<hr />
+<div [ngStyle]="{'color': 'purple',
+                 'font-size': '38px',
+                'font-weight': 'bold'}"> Using NgStyle</div>]
+                <br />
+
+<input [(ngModel)] ="size" />
+<div [ngStyle]="{'font-size.px': size}"> Change my size</div>
+<hr />

@@ -14,6 +14,7 @@ export class TestComponent implements OnInit {
   cssClass : CssClass = new CssClass();
   status: string = 'payed';
   size= 10;
+  president = "Boris";
   constructor() { }
 
   ngOnInit(): void {

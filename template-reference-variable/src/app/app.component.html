@@ -1,0 +1,63 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+  <h4>{{titleForm}}</h4>
+<p>
+  <label for="firstName">First Name</label>&nbsp;
+  <input type="text" id="firstName" name="firstName" [(ngModel)] ="contact.firstName" />
+</p>
+
+<p>
+  <label for="lastName">Last Name</label>&nbsp;
+  <input type="text" id="lastName" name="lastName" [(ngModel)] ="contact.lastName" />
+</p>
+
+<p>
+  <label for="email">Email</label>&nbsp;
+  <input type="email" id="email" name="email" [(ngModel)] ="contact.email"/>
+</p>
+
+<p>
+  <label for="gender">Gender</label>&nbsp;
+  <input type="radio" id="gender" value="male" name="gender" ngModel disabled/>Male
+  <input type="radio" id="gender" value="female" name="gender" ngModel disabled/>Female
+</p>
+<p>
+  <label for="ismarried">Married</label>
+  <input type="checkbox" name="isMarried" id="isMarried" ngModel>
+</p>
+
+<p>
+  <label for="country">Country</label>
+  <select name="country" id="country" ngModel>
+    <option *ngFor="let c of countryList" [ngValue]="c.id">{{c.name}}</option>
+  </select>
+</p>
+<div ngModelGroup="completeAddress">
+  <p>
+    <label for="city">City</label>&nbsp;
+    <input type="text" id="city" name="city" ngModel />
+  </p>
+  <p>
+    <label for="street">Street</label>&nbsp;
+    <input type="text" id="street" name="street" ngModel />
+  </p>
+  <p>
+    <label for="postalCode">Postal Code</label>&nbsp;
+    <input type="text" id="postalCode" name="postalCode" ngModel pattern="[A-Za-z0-9]*" />
+    <span *ngIf="true">
+      Postal Code is invalid
+    </span>
+  </p>
+</div>
+<p>
+  <button type="submit">Submit</button>
+  <button type="button" (click)="reset(contactForm)">Reset</button>
+  <button type="button" (click)="patchValue()">Patch</button>
+</p>
+</form>
+<hr />
+
+<pre>Value : {{contactForm.value | json }}</pre>
+<pre>Valid : {{contactForm.valid | json }}</pre>
+<pre>Touched : {{contactForm.touched | json }}</pre>
+<pre>Submitted : {{contactForm.submitted | json }}</pre>
+

@@ -8,7 +8,19 @@ import { Customer } from '../../models/customer.model';
 })
 export class CustomerDetailComponent implements OnInit {
 
-  @Input() customer: Customer; // for getting info from parent
+ @Input() customer: Customer; // for getting info from parent
+
+  /* define input as a setter do add additional info/check before use 
+  private _customerData = {} as Customer;
+  @Input() set customer(customer: Customer) {
+    // Custom logic ...
+    this._customerData = customer;
+  }
+  get customer(): Customer {
+    return this._customerData;
+  }
+*/
+
 
   @Output() customerChange:EventEmitter<Customer> = new EventEmitter<Customer>();
   constructor() { }
